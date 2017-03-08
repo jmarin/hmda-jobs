@@ -3,9 +3,9 @@ job('HMDA-Platform-Assembly') {
         git('git://github.com/cfpb/hmda-platform.git')
     }
     triggers {
-        scm('H/15 * * * *')
+        scm('H/5 * * * *')
     }
     steps {
-        sbt('clean test assembly')
+        sbt('sbt', 'clean test assembly', '-Dsbt.log.noformat=true', '-Xmx2G -Xmx512M')
     }
 }
